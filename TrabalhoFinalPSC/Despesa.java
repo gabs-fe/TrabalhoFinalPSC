@@ -2,11 +2,11 @@ package TrabalhoFinalPSC;
 
 public class Despesa extends Transacao {
     public Despesa(double valor, String descricao) {
-     super(valor,descricao); // herdando da classe mãe
+     super(valor,descricao);
     }
-    @Override // avisando que está mudando
+    @Override 
     public String getTipo() {
-        return "Despesa"; // atribuindo o tipo
+        return "Despesa"; 
     }
 }
 
