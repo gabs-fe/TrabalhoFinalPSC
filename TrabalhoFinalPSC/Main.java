@@ -8,7 +8,7 @@ import java.util.Map;//dashboard
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Transacao> transacao = new ArrayList<>(); // criando lista de objetivo do tipo Transacao (ou das subclasses dela), <transacao> garante que so aceite objetos desse tipo, e new ArrayList vc esta criando uma nova instancia, ela começa vazia. 
+        ArrayList<Transacao> transacao = new ArrayList<>(); 
         int opcao;
 
         do {
@@ -22,14 +22,14 @@ public class Main {
             System.out.println("7. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
-            scanner.nextLine(); // limpar o buffer
+            scanner.nextLine(); 
 
             switch (opcao) {
-                case 1: // adicionar receita
+                case 1: 
                     System.out.print("Descrição da receita: ");
-                    String descReceita = scanner.nextLine(); // recebe descriçao
+                    String descReceita = scanner.nextLine(); 
                     System.out.print("Valor da receita: R$ ");
-                    double valorReceita = scanner.nextDouble(); // recebe o valor
+                    double valorReceita = scanner.nextDouble(); 
                     if (valorReceita > 0) {
                         transacao.add(new Receita(valorReceita, descReceita));
                         System.out.println("\nReceita adicionada com sucesso.");
@@ -38,41 +38,41 @@ public class Main {
                     }
                     break;
 
-                case 2: // adicionar despesa
+                case 2: 
                     System.out.print("Descrição da despesa: ");
-                    String descDespesa = scanner.nextLine(); // recebe descricao
+                    String descDespesa = scanner.nextLine(); 
                     System.out.print("Valor da despesa: R$ ");
-                    double valorDespesa = scanner.nextDouble(); // recebe valor
-                    scanner.nextLine(); // limpa o buffer apos a leitura do valor
+                    double valorDespesa = scanner.nextDouble(); 
+                    scanner.nextLine(); 
                     if (valorDespesa > 0) {
-                        transacao.add(new Despesa(valorDespesa, descDespesa)); //cria uma nova despesa
+                        transacao.add(new Despesa(valorDespesa, descDespesa)); 
                         System.out.println("\nDespesa adicionada com sucesso.");
                     } else {
                         System.out.println("\nValor inválido.");
                     }
                     break;
 
-                case 3: // listar transações
+                case 3: 
                     System.out.println("\n--- Transações ---");
-                    for (Transacao t : transacao) { // percorre todas as transaçoes (despesas e receitas) armazenadas no arraylist
-                        System.out.printf("%s: R$ %.2f - %s%n", // exibe o tipo (despesa/receita), valir e descricao.
+                    for (Transacao t : transacao) { 
+                        System.out.printf("%s: R$ %.2f - %s%n", 
                             t.getTipo(), t.getValor(), t.getDescricao());
                     }
                     break;
 
-                case 4: // ver saldo
-                    double saldo = 0.0; // inicia a variavel saldo
-                    for (Transacao t : transacao) { // percorre todas as transaçoes
-                        if (t instanceof Receita) { // "se a tranaçao for do tipo receita"
-                            saldo += t.getValor(); // adiciona o valor
-                        } else if (t instanceof Despesa) { // "se a tranaçao for do tipo despesa"
-                            saldo -= t.getValor(); // adicona o valor
+                case 4: 
+                    double saldo = 0.0; 
+                    for (Transacao t : transacao) { 
+                        if (t instanceof Receita) { 
+                            saldo += t.getValor(); 
+                        } else if (t instanceof Despesa) { 
+                            saldo -= t.getValor(); 
                         }
                     }
-                    System.out.printf("\nSaldo atual: R$ %.2f%n", saldo); // exibe saldo final 
+                    System.out.printf("\nSaldo atual: R$ %.2f%n", saldo); 
                     break;
 
-                case 5: // Alterar/Excluir Transação (Receita ou Despesa)
+                case 5: 
                    if (transacao.isEmpty()) {
                    System.out.println("Nenhuma transação registrada.");
                  break;
@@ -118,17 +118,17 @@ public class Main {
             }
            break;
 
-                case 6: //ver dashboard
+                case 6:
                     double totalReceita = 0.0;
-                    Map<String, Double> resumoDespesas = new HashMap<>(); // armazena descrição e valor da despesa
+                    Map<String, Double> resumoDespesas = new HashMap<>(); 
 
-                    for (Transacao t : transacao) {   // passa por todas as transações
+                    for (Transacao t : transacao) { 
                     if (t instanceof Receita) {
-                     totalReceita += t.getValor(); // soma todas as receitas
+                     totalReceita += t.getValor(); 
                      } 
 
                      else if (t instanceof Despesa) {
-                     String desc = t.getDescricao();// Agrupa despesas por descrição
+                     String desc = t.getDescricao();
                      resumoDespesas.put(desc, resumoDespesas.getOrDefault(desc, 0.0) + t.getValor());
                       }
                      }
@@ -142,7 +142,7 @@ public class Main {
                      for (Map.Entry<String, Double> entrada : resumoDespesas.entrySet()) {
                      String descricao = entrada.getKey();
                      valorDespesa = entrada.getValue();
-                     double porcentagem = (valorDespesa / totalReceita) * 100; // calcula a porcentagem da receita que foi para essa despesa
+                     double porcentagem = (valorDespesa / totalReceita) * 100; 
                      System.out.printf("Neste mês, %.2f%% da sua receita foi para %s.%n", porcentagem, descricao);
                      }
                      }
@@ -150,13 +150,13 @@ public class Main {
                      break;
 
                 case 7:
-                    System.out.println("Saindo..."); // exibe a mensagem de saida
+                    System.out.println("Saindo...");
                     break;
                 default:
-                    System.out.println("Opção inválida."); // exibe erro
+                    System.out.println("Opção inválida.");
             }
 
-        } while (opcao != 0); //  Repete o menu até o usuário escolher a opção 0 
+        } while (opcao != 0);
 
         scanner.close();
     }
