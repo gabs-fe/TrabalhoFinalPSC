@@ -1,31 +1,37 @@
-# 💸 **FinanBuddy** - Gerenciador de Finanças Pessoais
+# 💸 FinanBuddy - Gerenciador de Finanças Pessoais
 
-O **FinanBuddy** é uma aplicação de desktop desenvolvida em **Java** com **Swing** para ajudar os usuários a gerenciar suas finanças pessoais. Com ele, você pode controlar suas receitas, despesas e visualizar gráficos financeiros diretamente na interface do aplicativo.
+**FinanBuddy** é uma aplicação desktop desenvolvida em **Java** com **Swing**, projetada para ajudar usuários a controlarem suas finanças pessoais de forma simples e intuitiva.
 
-## 💡 **Sobre**
+## Sobre o Projeto
 
-O **FinanBuddy** foi criado para facilitar o controle financeiro pessoal, fornecendo uma interface intuitiva e simples para registrar transações, acompanhar o orçamento e gerar relatórios de despesas. A ideia é ajudar o usuário a manter uma visão clara sobre suas finanças e a tomar decisões mais informadas.
+O objetivo do **FinanBuddy** é promover a educação financeira e auxiliar no controle orçamentário pessoal. Com uma interface amigável, o usuário pode:
 
----
+- Registrar transações (receitas e despesas);
+- Visualizar dados organizados por categoria e período;
+- Acompanhar gráficos que ajudam na análise dos hábitos financeiros.
 
-## 🛠️ **Tecnologias Utilizadas**
+## Tecnologias Utilizadas
 
 - **Linguagem:** Java
 - **Interface Gráfica:** Java Swing
-  
----
 
-## 🚀 **Funcionalidades**
+## Funcionalidades Principais
 
-- **Registro de Transações:** Adicione receitas e despesas com descrição, valor, categoria e data.
-- **Visualização de Despesas:** Acompanhe o total de despesas por categoria e mês.
-- **Visualização de Receitas:** Acompanhe seu total de receita mensal.
+✔️ Registro de transações com:
+- Descrição
+- Valor
+- Categoria
+- Data
 
----
+✔️ Relatórios e visualizações:
+- Total de despesas por categoria e por mês
+- Total de receitas mensais
+- Gráficos intuitivos (em breve)
 
-## 📥 **Instalação**
 
-### 1. Clone o repositório
+## Instalação e Execução
+
+### 1. Clone este repositório
 
 ```bash
-git clone https://github.com/seuusuario/finanbuddy.git
+git clone https://github.com/gabs-fe/TrabalhoFinalPSC.git
